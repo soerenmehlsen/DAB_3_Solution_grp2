@@ -12,6 +12,7 @@ while (true)
         case"1":
             var createReservation = CreateReservation();
             reservationService.CreateNewReservation(createReservation);
+            Console.WriteLine("Reservations created!");
             break;
         default:
             Console.WriteLine("Command not known");
@@ -28,5 +29,10 @@ static Reservation CreateReservation()
         NumberOfPeople = 10,
         Note = "Note",
         Document = "Document",
+        Facility = new List<Facilty>
+        {
+           new Facilty { FacilityKind = "b", ClosestAddress = "c", Information = "f", RulesOfUse = "d"}
+        },
+        Item = new string[] { "Lighter", "Keys"}
     };
 }

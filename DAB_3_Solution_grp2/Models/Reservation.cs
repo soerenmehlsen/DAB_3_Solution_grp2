@@ -13,4 +13,15 @@ public class Reservation
     public int NumberOfPeople { get; set; }
     public string Note { get; set; }
     public string Document { get; set; }
+    public List<Facilty> Facility { get; set; }
+    public string[] Item { get; set; }
 }
+
+public class Facilty
+{
+    public string FacilityKind { get; set; }
+    public string ClosestAddress { get; set; }
+    public string Information { get; set; }
+    public string RulesOfUse { get; set; }
+}
+
