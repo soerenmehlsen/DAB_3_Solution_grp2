@@ -18,11 +18,20 @@ while (true)
             var createReservation2 = CreateReservation2();
             reservationService.CreateNewReservation(createReservation2);
             Console.WriteLine("Reservation 2 created!");
+            var createReservation3 = CreateReservation3();
+            reservationService.CreateNewReservation(createReservation3);
+            Console.WriteLine("Reservation 3 created!");
             break;
         case"2":
             var createUser = CreateUser();
             userService.CreateNewUser(createUser);
-            Console.WriteLine("Users created!");
+            Console.WriteLine("User 1 created!");
+            var createUser2 = CreateUser2();
+            userService.CreateNewUser(createUser2);
+            Console.WriteLine("User 2 created!");
+            var createUser3 = CreateUser3();
+            userService.CreateNewUser(createUser3);
+            Console.WriteLine("User 3 created!");
             break;
         case"3":
             var createItem = CreateItem();
@@ -31,6 +40,9 @@ while (true)
             var createItem2 = CreateItem2();
             itemService.CreateNewItem(createItem2);
             Console.WriteLine("Item 2 created!");
+            var createItem3 = CreateItem3();
+            itemService.CreateNewItem(createItem3);
+            Console.WriteLine("Item 3 created!");
             break;
         default:
             Console.WriteLine("Command not known");
@@ -72,6 +84,23 @@ static Reservation CreateReservation2()
     };
 }
 
+static Reservation CreateReservation3()
+{
+    return new Reservation
+    {
+        Id = 3,
+        DateIn = DateTime.Now,
+        DateOut = DateTime.Now,
+        NumberOfPeople = 33,
+        Note = "Note about reservation 3.",
+        Document = "Document about the 3rd reservation.",
+        Facility = new List<Facilty>
+        {
+            new Facilty { FacilityKind = "V", ClosestAddress = "B", Information = "N", RulesOfUse = "M"}
+        },
+    };
+}
+
 static User CreateUser()
 {
     return new User
@@ -85,11 +114,37 @@ static User CreateUser()
     };
 }
 
+static User CreateUser2()
+{
+    return new User
+    {
+        Id = 12,
+        Name = "Per",
+        PhoneNumber = 87654321,
+        Email = "per@hotmail.com",
+        Reservation = new int[] { 2 },
+        Company = null,
+    };
+}
+
+static User CreateUser3()
+{
+    return new User
+    {
+        Id = 13,
+        Name = "Frank",
+        PhoneNumber = 11223344,
+        Email = "frank@hotmail.com",
+        Reservation = new int[] { 3 },
+        Company = null,
+    };
+}
+
 static Item CreateItem()
 {
     return new Item
     {
-        Id = 20,
+        Id = 21,
         Facility = 1,
         Maintenance = new string[] {"1/11-2022: Rengjort", "10/11-2022: Rengjort igen", "1/12-2022: Rengjort igen igen"}
     };
@@ -99,8 +154,18 @@ static Item CreateItem2()
 {
     return new Item
     {
-        Id = 21,
+        Id = 22,
         Facility = 1,
-        Maintenance = new string[] {"1/12-2022 Skiftet en del..."}
+        Maintenance = new string[] {"1/12-2022 Skiftet en del...", "Skiftet en del igen..."}
+    };
+}
+
+static Item CreateItem3()
+{
+    return new Item
+    {
+        Id = 23,
+        Facility = 1,
+        Maintenance = new string[] {"1/12-2022 Smurt kæden...", "Skiftet batteri på lygte"}
     };
 }
