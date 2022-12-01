@@ -22,7 +22,8 @@ public class ReservationService
         _user = database.GetCollection<User>(userCollection);
         _item = database.GetCollection<Item>(itemCollection);
     }
-    
+
+    #region Create collections
     public Reservation CreateNewReservation(Reservation reservation)
     {
         _reservation.InsertOne(reservation);
@@ -40,4 +41,14 @@ public class ReservationService
         _item.InsertOne(item);
         return item;
     }
+    
+
+    #endregion
+
+    #region Queries
+
+    
+
+    #endregion
+    
 }

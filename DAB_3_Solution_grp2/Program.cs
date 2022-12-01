@@ -32,6 +32,9 @@ while (true)
             itemService.CreateNewItem(createItem2);
             Console.WriteLine("Item 2 created!");
             break;
+        case"4":
+            
+            break;
         default:
             Console.WriteLine("Command not known");
             break;
