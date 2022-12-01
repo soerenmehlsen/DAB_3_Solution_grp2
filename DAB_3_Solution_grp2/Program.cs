@@ -24,7 +24,10 @@ while (true)
         case"3":
             var createItem = CreateItem();
             itemService.CreateNewItem(createItem);
-            Console.WriteLine("Item created!");
+            Console.WriteLine("Item 1 created!");
+            var createItem2 = CreateItem2();
+            itemService.CreateNewItem(createItem2);
+            Console.WriteLine("Item 2 created!");
             break;
         default:
             Console.WriteLine("Command not known");
@@ -69,5 +72,15 @@ static Item CreateItem()
         Id = 20,
         Facility = 1,
         Maintenance = new string[] {"1/11-2022: Rengjort", "10/11-2022: Rengjort igen", "1/12-2022: Rengjort igen igen"}
+    };
+}
+
+static Item CreateItem2()
+{
+    return new Item
+    {
+        Id = 21,
+        Facility = 1,
+        Maintenance = new string[] {"1/12-2022 Skiftet en del..."}
     };
 }
