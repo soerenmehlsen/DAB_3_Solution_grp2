@@ -14,7 +14,10 @@ while (true)
         case"1":
             var createReservation = CreateReservation();
             reservationService.CreateNewReservation(createReservation);
-            Console.WriteLine("Reservations created!");
+            Console.WriteLine("Reservation 1 created!");
+            var createReservation2 = CreateReservation2();
+            reservationService.CreateNewReservation(createReservation2);
+            Console.WriteLine("Reservation 2 created!");
             break;
         case"2":
             var createUser = CreateUser();
@@ -48,6 +51,23 @@ static Reservation CreateReservation()
         Facility = new List<Facilty>
         {
            new Facilty { FacilityKind = "b", ClosestAddress = "c", Information = "f", RulesOfUse = "d"}
+        },
+    };
+}
+
+static Reservation CreateReservation2()
+{
+    return new Reservation
+    {
+        Id = 2,
+        DateIn = DateTime.Now,
+        DateOut = DateTime.Now,
+        NumberOfPeople = 22,
+        Note = "Note about reservation 2.",
+        Document = "Document about the 2nd reservation.",
+        Facility = new List<Facilty>
+        {
+            new Facilty { FacilityKind = "Y", ClosestAddress = "U", Information = "I", RulesOfUse = "O"}
         },
     };
 }
