@@ -45,7 +45,22 @@ while (true)
             Console.WriteLine("Item 3 created!");
             break;
         case"4":
-            
+            foreach (var i in reservationService.GetQuery1())
+            {
+                Console.WriteLine(i);   
+            }
+            break;
+        case"5":
+            foreach (var i in reservationService.GetQuery2())
+            {
+                Console.WriteLine(i);   
+            }
+            break;
+        case"6":
+            foreach (var i in reservationService.GetQuery3())
+            {
+                Console.WriteLine(i);   
+            }
             break;
         default:
             Console.WriteLine("Command not known");
@@ -65,7 +80,7 @@ static Reservation CreateReservation()
         Document = "Document",
         Facility = new List<Facilty>
         {
-           new Facilty { FacilityKind = "b", ClosestAddress = "c", Information = "f", RulesOfUse = "d"}
+           new Facilty { Name = "a", FacilityKind = "b", ClosestAddress = "c", Information = "f", RulesOfUse = "d"}
         },
     };
 }
@@ -82,7 +97,7 @@ static Reservation CreateReservation2()
         Document = "Document about the 2nd reservation.",
         Facility = new List<Facilty>
         {
-            new Facilty { FacilityKind = "Y", ClosestAddress = "U", Information = "I", RulesOfUse = "O"}
+            new Facilty { Name = "Æ", FacilityKind = "Y", ClosestAddress = "U", Information = "I", RulesOfUse = "O"}
         },
     };
 }
@@ -99,7 +114,7 @@ static Reservation CreateReservation3()
         Document = "Document about the 3rd reservation.",
         Facility = new List<Facilty>
         {
-            new Facilty { FacilityKind = "V", ClosestAddress = "B", Information = "N", RulesOfUse = "M"}
+            new Facilty { Name = "Q", FacilityKind = "V", ClosestAddress = "B", Information = "N", RulesOfUse = "M"}
         },
     };
 }

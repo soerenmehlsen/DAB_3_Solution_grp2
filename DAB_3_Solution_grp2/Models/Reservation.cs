@@ -17,6 +17,7 @@ public class Reservation
 
 public class Facilty
 {
+    public string Name { get; set; }
     public string FacilityKind { get; set; }
     public string ClosestAddress { get; set; }
     public string Information { get; set; }
