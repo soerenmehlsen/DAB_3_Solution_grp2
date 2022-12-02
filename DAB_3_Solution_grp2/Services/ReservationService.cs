@@ -62,8 +62,8 @@ public class ReservationService
     {
         var bson = _reservation
             .Find(new BsonDocument()) // Finding all documents from the collection
-            .Project("{Facility: {Name:1, ClosestAddress:1}}") //Projecting is selecting name and closestAddress from facility
-            .Sort("{Facility.FacilityKind: -1}") //sorting after facility kind from a to z
+            .Project("{Facility: {Name:1, ClosestAddress:1, FacilityKind:1}}") //Projecting is selecting name and closestAddress from facility
+            .Sort("{\"Facility.FacilityKind\": 1}") //sorting after facility kind from a to z
             .ToList(); // adding to list
         return bson;
     }
@@ -73,6 +73,7 @@ public class ReservationService
         var bson = _user
             .Aggregate()
             .Lookup("Reservation", "Reservation", "_id", "Reservation")
+            .Project("{Name: 1, \"Reservation.DateIn\": 1, \"Reservation.DateOut\": 1, \"Reservation.Facility.Name\": 1}")
             .ToList();
         return bson;
     }
