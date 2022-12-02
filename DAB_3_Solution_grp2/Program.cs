@@ -62,6 +62,18 @@ while (true)
                 Console.WriteLine(i);   
             }
             break;
+        case"7":
+            foreach (var i in reservationService.GetQuery4())
+            {
+                Console.WriteLine(i);   
+            }
+            break;
+        case"8":
+            foreach (var i in reservationService.GetQuery5())
+            {
+                Console.WriteLine(i);   
+            }
+            break;
         default:
             Console.WriteLine("Command not known");
             break;
@@ -126,6 +138,7 @@ static User CreateUser()
         Id = 10,
         Name = "Anders",
         PhoneNumber = 12345678,
+        CPRNumber = 1203904321,
         Email = "anders@hotmail.com",
         Reservation = new int[] { 1 },
         Company = null,
@@ -139,6 +152,7 @@ static User CreateUser2()
         Id = 12,
         Name = "Per",
         PhoneNumber = 87654321,
+        CPRNumber = 1204904331,
         Email = "per@hotmail.com",
         Reservation = new int[] { 2 },
         Company = null,
@@ -152,6 +166,7 @@ static User CreateUser3()
         Id = 13,
         Name = "Frank",
         PhoneNumber = 11223344,
+        CPRNumber = 1205903331,
         Email = "frank@hotmail.com",
         Reservation = new int[] { 3 },
         Company = null,
@@ -163,7 +178,8 @@ static Item CreateItem()
     return new Item
     {
         Id = 21,
-        Facility = 1,
+        ItemType = "Nøgler",
+        FacilityId = 1,
         Maintenance = new string[] {"1/11-2022: Rengjort", "10/11-2022: Rengjort igen", "1/12-2022: Rengjort igen igen"}
     };
 }
@@ -173,7 +189,8 @@ static Item CreateItem2()
     return new Item
     {
         Id = 22,
-        Facility = 1,
+        ItemType = "Sengetøj",
+        FacilityId = 1,
         Maintenance = new string[] {"1/12-2022 Skiftet en del...", "Skiftet en del igen..."}
     };
 }
@@ -183,7 +200,8 @@ static Item CreateItem3()
     return new Item
     {
         Id = 23,
-        Facility = 1,
+        ItemType = "Cykel",
+        FacilityId = 1,
         Maintenance = new string[] {"1/12-2022 Smurt kæden...", "Skiftet batteri på lygte"}
     };
 }

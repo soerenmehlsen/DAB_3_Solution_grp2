@@ -73,8 +73,25 @@ public class ReservationService
         var bson = _user
             .Aggregate()
             .Lookup("Reservation", "Reservation", "_id", "Reservation")
-            //.Project("{Facility: {Name:1}, DateIn: 1, DateOut: 1,}")
             .ToList();
+        return bson;
+    }
+    
+    public List<BsonDocument> GetQuery4()
+    {
+        var bson = _user
+            .Find(new BsonDocument()) 
+            .Project("{CPRNumber:1}")
+            .ToList(); 
+        return bson;
+    }
+    
+    public List<BsonDocument> GetQuery5()
+    {
+        var bson = _item
+            .Find(new BsonDocument()) 
+            .Project("{ItemType:1, Maintenance:1}") 
+            .ToList(); 
         return bson;
     }
 
